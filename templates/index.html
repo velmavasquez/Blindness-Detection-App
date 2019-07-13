@@ -20,31 +20,65 @@
     </div>
 
     <br>
-    <div class="bg-light" style="padding: 50px;">
-        <form class="form-inline" method="post" enctype=multipart/form-data> <div class="row">
-            <div class="col-lg-3 col-sm-3 imgUp">
-                <figcaption class="figure-caption" id="image-name">Upload to Predict</figcaption>
-                <br>
-                <div class="form-group">
-                    <div class="imagePreview"></div>
-                    <div class="upload-options">
-                        <label>
-                            <i class="fas fa-upload"></i>
-                            <input action="/" type="file" name='file' class="image-upload" accept="image/*" />
-                        </label>
-                    </div>
-                </div>
+    <!-- <div class="bg-light" style="padding: 50px;">
+      <form class="form-inline" method="post" enctype=multipart/form-data> <div class="row">
+        <div class="col-lg-3 col-sm-3 imgUp">
+          <figcaption class="figure-caption" id="image-name">Upload to Predict</figcaption>
+          <br>
+          <div class="form-group">
+            <div class="imagePreview"></div>
+            <div class="upload-options">
+              <label>
+                <i class="fas fa-upload"></i>
+                <input action="/" type="file" name='file' class="image-upload" accept="image/*" />
+              </label>
             </div>
-        </form><!-- col-2 -->
-        <i class="fa fa-plus imgAdd"></i>
-    </div><!-- row -->
-    
+          </div>
+        </div>
+      </form><-- col-2 -->
+      <!-- <i class="fa fa-plus imgAdd"></i> -->
+    <!-- </div>row --> 
 
-  <!-- <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-  <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-  <!-- <script src="{{ url_for('static', filename='js/plot1.js') }}"></script> -->
+    <FormGroup id={"upload_button"}>
+      <div>
+          <p>Upload an image</p>
+      </div>
+      <Label for="imageUpload">
+          <Input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg" ref="file"
+                 onChange={this._onFileUpload}/>
+          <span className="btn btn-primary">Upload</span>
+      </Label>
+  </FormGroup>
+
+  <img src={this.state.file} className={"img-preview"} hidden={!this.state.imageSelected}/>
+
+
+
+    <!-- <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+    <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='js/plot1.js') }}"></script> -->
+    <!-- Required dependencies -->
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.1/prop-types.min.js"></script>
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/react/16.3.2/umd/react.production.min.js"></script>
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.3.2/umd/react-dom.production.min.js"></script>
+    <script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script type="text/babel" data-presets="es2017, stage-3"
+      data-plugins="syntax-async-functions,transform-class-properties,transform-es2015-modules-umd, transform-async-to-generator"></script>
+    <!-- Optional dependencies -->
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/react-transition-group/2.2.1/react-transition-group.min.js"></script>
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/react-popper/0.10.4/umd/react-popper.min.js"></script>
+    <!-- Reactstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reactstrap/7.1.0/reactstrap.min.js"></script>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/react-router/4.3.1/react-router.min.js"></script>
 
 </body>
 

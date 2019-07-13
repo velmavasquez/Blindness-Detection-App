@@ -1,10 +1,12 @@
 from flask import Flask, jsonify, render_template, url_for, request, redirect
 import yaml
 import os
+import glob
+import pandas as pd
 
 
-with open("src/config.yaml", 'r') as stream:
-    APP_CONFIG = yaml.load(stream)
+# with open("src/config.yaml", 'r') as stream:
+#     APP_CONFIG = yaml.load(stream)
 
 app = Flask(__name__)
 
