@@ -1,0 +1,34 @@
+/* Image Designing Propoerties */
+.thumb {
+     height: 75px;
+        border: 1px solid #000;
+        margin: 10px 5px 0 0;
+}
+
+/* overlay an opaque dark color so the text will still show up */
+.jumbotron {
+        font-family: 'Lato', sans-serif;
+        font-size: 50px;
+        color: whitesmoke;
+        background-image: url("../images/DRP.png");
+        background-size: cover;
+        min-height: 350px;
+        margin: 0px;
+        position: relative;
+    }
+
+    .jumbotron > .overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(8, 9, 58, 0.5);
+        z-index: 1;
+    }
+    
+    .jumbotron > .inner {
+        position: relative;
+        z-index: 2;
+    }
+    

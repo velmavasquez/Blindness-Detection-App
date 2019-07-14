@@ -7,78 +7,94 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Flask Plotlyjs Example</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Main HTML Style CSS-->
+  <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
 <body>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>Blindness Detection App</h1>
-        <p>Upload an image</p>
+  <!-- navbar -->
+  <nav id="navbar">
+    <div class="navbar-header">
+      <a class="navbar-brand team-name" href="" style="padding-left:25px">Blindness Detection App</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+          <a class="nav-link" target="#" href="">About</a>
+        </li>
+        <li class="menu">
+          <a target="#_blank" href="https://github.com/velmavasquez/Blindness-Detection-App" style="padding-right:20px">
+            <img width=40px height=40px src="../static/images/Github-Logo-lg.svg">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- jumbotron & intro -->
+  <div class="row">
+    <div class="jumbotron text-center">
+      <div class="overlay"></div>
+      <div class="inner">
+        <h1><span>Classification of Diabetic Retinopathy Severity </span></h1>
+        <h3 class="h3-white"> Detect blindness before it happens</h3>
       </div>
     </div>
-
-    <br>
-    <!-- <div class="bg-light" style="padding: 50px;">
-      <form class="form-inline" method="post" enctype=multipart/form-data> <div class="row">
-        <div class="col-lg-3 col-sm-3 imgUp">
-          <figcaption class="figure-caption" id="image-name">Upload to Predict</figcaption>
-          <br>
-          <div class="form-group">
-            <div class="imagePreview"></div>
-            <div class="upload-options">
-              <label>
-                <i class="fas fa-upload"></i>
-                <input action="/" type="file" name='file' class="image-upload" accept="image/*" />
-              </label>
-            </div>
-          </div>
+  </div>
+  <!-- Navigation -->
+  <section id="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h3 style="color: Black" class="section-heading text-uppercase">Use neural networks to identify the severity
+            level of diabetic
+            retinopathy</h3>
+          <h3 class="section-subheading text-muted">Upload an Image</h3>
         </div>
-      </form><-- col-2 -->
-      <!-- <i class="fa fa-plus imgAdd"></i> -->
-    <!-- </div>row --> 
-
-    <FormGroup id={"upload_button"}>
-      <div>
-          <p>Upload an image</p>
       </div>
-      <Label for="imageUpload">
-          <Input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg" ref="file"
-                 onChange={this._onFileUpload}/>
-          <span className="btn btn-primary">Upload</span>
-      </Label>
-  </FormGroup>
+      <br>
+      <br>
+      <div class="row text-center">
+        <div class="col-md-4"></div>
 
-  <img src={this.state.file} className={"img-preview"} hidden={!this.state.imageSelected}/>
+        <div class="col-md-4">
+          <img id="zero" src="" height="200" alt="Image preview...">
+          <br><br>
+          <input type="file" onchange="previewFile()">
+
+        </div>
+
+        <div class="col-md-4"></div>
+
+      </div>
+    </div>
+  </section>
 
 
 
-    <!-- <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
-    <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-    <!-- <script src="{{ url_for('static', filename='js/plot1.js') }}"></script> -->
-    <!-- Required dependencies -->
-    <script type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.1/prop-types.min.js"></script>
-    <script type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/react/16.3.2/umd/react.production.min.js"></script>
-    <script type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.3.2/umd/react-dom.production.min.js"></script>
-    <script type="application/javascript" src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
-    <script type="text/babel" data-presets="es2017, stage-3"
-      data-plugins="syntax-async-functions,transform-class-properties,transform-es2015-modules-umd, transform-async-to-generator"></script>
-    <!-- Optional dependencies -->
-    <script type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/react-transition-group/2.2.1/react-transition-group.min.js"></script>
-    <script type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/react-popper/0.10.4/umd/react-popper.min.js"></script>
-    <!-- Reactstrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reactstrap/7.1.0/reactstrap.min.js"></script>
-    <script src=" https://cdnjs.cloudflare.com/ajax/libs/react-router/4.3.1/react-router.min.js"></script>
+
+
+  <!-- Required dependencies -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
 
 </body>
 
