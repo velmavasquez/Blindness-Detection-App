@@ -5,14 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Flask Plotlyjs Example</title>
+  <title>Blindness Detection App</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- Main HTML Style CSS-->
   <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
 <body>
-
   <!-- navbar -->
   <nav id="navbar">
     <div class="navbar-header">
@@ -31,7 +30,6 @@
       </ul>
     </div>
   </nav>
-
   <!-- jumbotron & intro -->
   <div class="row">
     <div class="jumbotron text-center">
@@ -59,9 +57,20 @@
         <div class="col-md-4"></div>
 
         <div class="col-md-4">
-          <img id="zero" src="" height="200" alt="Image preview...">
+          <img src="" id="selected-image" height="200" alt="Image preview..." />
           <br><br>
-          <input type="file" onchange="previewFile()">
+          <input id="image-selector" type="file">
+          <br>
+          <br>
+          <button id="predict-button">Predict</button>
+          <br>
+          <br>
+          <p style="font-weight:bold">Predictions</p>
+          <p>No DR: <span id="no-prediction"></span></p>
+          <p>Mild: <span id="mild-prediction"></span></p>
+          <p>Moderate: <span id="mod-prediction"></span></p>
+          <p>Severe: <span id="sev-prediction"></span></p>
+          <p>Proliferative DR: <span id="pro-prediction"></span></p>
 
         </div>
 
@@ -71,10 +80,7 @@
     </div>
   </section>
 
-
-
-
-
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <!-- Required dependencies -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
@@ -85,9 +91,9 @@
   <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" -->
+  <!-- integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" -->
+  <!-- crossorigin="anonymous"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
@@ -95,7 +101,40 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 
+  <script>
+    let base64Image
+    $('#image-selector').change(function () {
+      let reader = new FileReader();
+      reader.onload = function (e) {
+        let dataURL = reader.result;
+        $('#selected-image').attr('src', dataURL);
+        // send image in base64 format
+        base64Image = dataURL.replace("data:image/png;base64,", "");
+        console.log(base64Image);
+      }
+      reader.readAsDataURL($("#image-selector")[0].files[0]);
+      $("#no-prediction").text("");
+      $("#mild-prediction").text("");
+      $("#mod-prediction").text("");
+      $("#sev-prediction").text("");
+      $("#pro-prediction").text("");
+    });
 
+    $('#predict-button').click(function (event) {
+      let message = {
+        image: base64Image
+      }
+      console.log(message);
+      $.post("./predict", JSON.stringify(message), function (response) {
+        $("#no-prediction").text(response.prediction.NoDR.toFixed(6));
+        $("#mild-prediction").text(response.prediction.Mild.toFixed(6));
+        $("#mod-prediction").text(response.prediction.Moderate.toFixed(6));
+        $("#sev-prediction").text(response.prediction.Severe.toFixed(6));
+        $("#pro-prediction").text(response.prediction.ProliferativeDR.toFixed(6));
+        console.log(response);
+      });
+    });
+  </script>
 </body>
 
 </html>
