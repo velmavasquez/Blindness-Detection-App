@@ -125,7 +125,7 @@
         image: base64Image
       }
       console.log(message);
-      $.post("./predict", JSON.stringify(message), function (response) {
+      $.post("/predict", JSON.stringify(message), function (response) {
         $("#no-prediction").text(response.prediction.NoDR.toFixed(6));
         $("#mild-prediction").text(response.prediction.Mild.toFixed(6));
         $("#mod-prediction").text(response.prediction.Moderate.toFixed(6));
