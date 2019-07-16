@@ -43,7 +43,7 @@ def prepare_image(nparr):
     img = cv2.imdecode(nparr, cv2.COLOR_BGR2GRAY)
 
     # Image processing
-    img_array = crop_image1(img) # crop images
+    #img_array = crop_image1(img) # crop images
     new_array = cv2.resize(img_array, (224, 224))  # resize images
     # Boilerplate adjustments
     new_array = cv2.addWeighted ( new_array,4, cv2.GaussianBlur( new_array , (0,0) , 224/10) ,-4 ,128) # adjust brightness
@@ -77,17 +77,17 @@ def predict():
     # prepare the image for the model
     processed_image = prepare_image(nparr)
 
-    #prediction = model.predict(processed_image)
-    prediction = model.predict(processed_image).tolist()
-    response = {
-         'prediction':{
-             'NoDR': prediction[0][0],
-             'Mild': prediction[0][1],
-             'Moderate': prediction[0][2],
-             'Severe': prediction[0][3],
-             'ProliferativeDR': prediction[0][4]
-         }
-    }
+    with graph.as_default():
+        prediction = model.predict(processed_image).tolist()
+        response = {
+            'prediction':{
+                'NoDR': prediction[0][0],
+                'Mild': prediction[0][1],
+                'Moderate': prediction[0][2],
+                'Severe': prediction[0][3],
+                'ProliferativeDR': prediction[0][4]
+            }
+        }
     return jsonify(response)
 
 
