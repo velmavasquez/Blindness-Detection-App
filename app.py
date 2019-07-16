@@ -33,7 +33,7 @@ def load_model():
     global graph
     # the following with stmnt may only be needed when running in tensorflow 1.13.1 environment
     #with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
-        #model = keras.models.load_model(os.path.join(app.config['MODEL_FOLDER'], "cnn1_trained_amy.h5"))
+    #    model = keras.models.load_model(os.path.join(app.config['MODEL_FOLDER'], "cnn1_trained_amy.h5"))
     model = keras.models.load_model(os.path.join(app.config['MODEL_FOLDER'], "model_1.h5"))
     graph = K.get_session().graph
     print("  *****  Model loaded!")
@@ -44,7 +44,7 @@ def prepare_image(nparr):
 
     # Image processing
     #img_array = crop_image1(img) # crop images
-    new_array = cv2.resize(img_array, (224, 224))  # resize images
+    new_array = cv2.resize(img, (224, 224))  # resize images
     # Boilerplate adjustments
     new_array = cv2.addWeighted ( new_array,4, cv2.GaussianBlur( new_array , (0,0) , 224/10) ,-4 ,128) # adjust brightness
     new_array = new_array/255.0
