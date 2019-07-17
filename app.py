@@ -1,7 +1,8 @@
 import os
 import io
 import numpy as np
-from cv2 import base64
+import cv2
+import base64
 from flask import Flask, request, jsonify, render_template
 
 import keras
