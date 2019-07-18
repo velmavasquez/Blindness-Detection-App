@@ -37,16 +37,18 @@ def load_model():
         model = keras.models.load_model(os.path.join(app.config['MODEL_FOLDER'], "cnn1_trained_jn.h5"))
         #model = keras.models.load_model(os.path.join(app.config['NB_FOLDER'], "cnn1_trained.h5"))
         #model = keras.models.load_model(os.path.join(app.config['MODEL_FOLDER'], "cnn1_trained_amy.h5"))
-        #model = keras.models.load_model(os.path.join(app.config['NB_FOLDER'], "colab_tf_1131_CPU.h5"))
+        #model = keras.models.load_model(os.path.join(app.config['NB_FOLDER'], "colab_tf_1131_GPU.h5"))
     graph = K.get_session().graph
     print("  *****  Model loaded!")
 
 def prepare_image(nparr):
     #  let opencv decode image to correct format
     img = cv2.imdecode(nparr, cv2.COLOR_BGR2GRAY)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    # print(img.shape)
 
     # Image processing
-    #img_array = crop_image1(img) # crop images
+    img = crop_image1(img) # crop images
     new_array = cv2.resize(img, (224, 224))  # resize images
     # Boilerplate adjustments
     new_array = cv2.addWeighted ( new_array,4, cv2.GaussianBlur( new_array , (0,0) , 224/10) ,-4 ,128) # adjust brightness
