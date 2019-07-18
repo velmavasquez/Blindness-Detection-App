@@ -13,6 +13,7 @@ Flask==1.1.1
 gast==0.2.2
 google-pasta==0.1.7
 grpcio==1.16.1
+gunicorn==19.9.0
 h5py==2.9.0
 ipykernel==5.1.1
 ipython==7.6.1
@@ -32,6 +33,10 @@ mistune==0.8.4
 mkl-fft==1.0.12
 mkl-random==1.0.2
 mock==3.0.5
+nb-conda==2.2.1
+nb-conda-kernels==2.2.2
+nbconvert==5.5.0
+nbformat==4.4.0
 notebook==5.7.8
 numpy==1.16.4
 opencv-python==4.1.0.25
