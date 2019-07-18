@@ -13,7 +13,6 @@ Keras-Applications==1.0.8
 Keras-Preprocessing==1.1.0
 Markdown==3.1.1
 MarkupSafe==1.1.1
-mkl-random==1.0.2
 mock==3.0.5
 nb-conda==2.2.1
 nb-conda-kernels==2.2.2
