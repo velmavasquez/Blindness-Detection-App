@@ -36,6 +36,8 @@ def load_model():
     with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
         model = keras.models.load_model(os.path.join(app.config['MODEL_FOLDER'], "cnn1_trained_jn.h5"))
         #model = keras.models.load_model(os.path.join(app.config['NB_FOLDER'], "cnn1_trained.h5"))
+        #model = keras.models.load_model(os.path.join(app.config['MODEL_FOLDER'], "cnn1_trained_amy.h5"))
+        #model = keras.models.load_model(os.path.join(app.config['NB_FOLDER'], "colab_tf_1131_CPU.h5"))
     graph = K.get_session().graph
     print("  *****  Model loaded!")
 
