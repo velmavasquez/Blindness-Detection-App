@@ -136,7 +136,14 @@
         });
         let cf = crossfilter(predictions_array);
         let category = cf.dimension(p=>p.category);
-        dc.rowChart('#row-chart').dimension(category).group(category.group().reduceSum(p=>p.value))
+        myRowChart = dc.rowChart('#row-chart').dimension(category).group(category.group().reduceSum(p=>p.value));
+        myRowChart.ordering(function(d) {
+            if(d.value == "NoDR") return 0;
+            else if(d.value == "Mild") return 1;
+            else if(d.value == "Moderate") return 2;
+            else if(d.value == "Severe") return 3;
+            else if(d.value == "ProliferativeDR") return 4;
+          });
         // dc.pieChart('#pie-chart').dimension(category).group(category.group().reduceSum(p=>p.value))
         dc.renderAll();
         $("#no-prediction").text(response.prediction.NoDR.toFixed(6));
