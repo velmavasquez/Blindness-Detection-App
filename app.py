@@ -43,7 +43,8 @@ def load_model():
 
 def prepare_image(nparr):
     #  let opencv decode image to correct format
-    img = cv2.imdecode(nparr, cv2.COLOR_BGR2GRAY)
+    img = cv2.imdecode(nparr, cv2.COLOR_BGR2RGB)
+    # print(img.shape)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     # print(img.shape)
 
