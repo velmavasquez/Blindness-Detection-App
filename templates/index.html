@@ -56,13 +56,13 @@
       <br>
       <div class="row text-center">
         <div class="col-md-4"></div>
-
+        <!-- HTML Elements -->
         <div class="col-md-4">
           <img class="center-block" src="" id="selected-image" height="200" alt="" />
           <br><br>
           <label class="custom-file-upload">
               <input id="image-selector" type="file" accept="image/png" style="display:none;" >
-              Choose Image File...
+              Choose Image File ...
           </label>
           <br>
           <br>
@@ -117,14 +117,13 @@
         // console.log(base64Image);
       }
       reader.readAsDataURL($("#image-selector")[0].files[0]);
-      // $("#selected-image").show();
       $("#no-prediction").text("");
       $("#mild-prediction").text("");
       $("#mod-prediction").text("");
       $("#sev-prediction").text("");
       $("#pro-prediction").text("");
       $("#row-chart").empty();
-      document.getElementById("custom-table").style.display = "none";
+      $("#custom-table").css("display", "none");
     });
 
     $('#predict-button').click(function (event) {
@@ -155,7 +154,7 @@
         $("#mod-prediction").text(response.prediction.Moderate.toFixed(6));
         $("#sev-prediction").text(response.prediction.Severe.toFixed(6));
         $("#pro-prediction").text(response.prediction.ProliferativeDR.toFixed(6));
-        document.getElementById("custom-table").style.display = "block";
+        $("#custom-table").css("display", "block");
         console.log(response);
       });
     });
@@ -167,12 +166,13 @@
       $("#sev-prediction").text("");
       $("#pro-prediction").text("");
       $("#row-chart").empty();
-      document.getElementById("custom-table").style.display = "none";
-      document.getElementById("selected-image").src='';
+      $("#custom-table").css("display","none")
+      $('#selected-image').attr('src', '');
+      base64Image = null;
     });
 
     function load(){
-      document.getElementById('custom-table').style.display="none";
+      $("#custom-table").css("display", "none");
     }
   </script>
 </body>
