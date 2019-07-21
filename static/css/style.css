@@ -44,6 +44,17 @@
     font-weight:bold; 
     text-align:center
 }
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
     
 #custom-table {
     border:3px; 
@@ -67,4 +78,11 @@
 #predict-button {
     background-color: rgb(148, 216, 148);
     font-weight: bold;
+    margin: 5px;
+}
+
+#clear-button {
+    background-color: rgb(114, 142, 221);
+    font-weight: bold;
+    margin: 5px;
 }

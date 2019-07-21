@@ -16,9 +16,9 @@ app = Flask(__name__)
 
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
-app.config['UPLOAD_FOLDER'] = 'uploads'
+#app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['MODEL_FOLDER'] = 'BD-Model'
-app.config['NB_FOLDER'] = 'Notebooks'
+#app.config['NB_FOLDER'] = 'Notebooks'
 
 model = None
 graph = None
@@ -35,9 +35,6 @@ def load_model():
     # the following with stmnt may only be needed when running in tensorflow 1.13.1 environment.
     with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
         model = keras.models.load_model(os.path.join(app.config['MODEL_FOLDER'], "cnn1_trained_jn.h5"))
-        #model = keras.models.load_model(os.path.join(app.config['NB_FOLDER'], "cnn1_trained.h5"))
-        #model = keras.models.load_model(os.path.join(app.config['MODEL_FOLDER'], "cnn1_trained_amy.h5"))
-        #model = keras.models.load_model(os.path.join(app.config['NB_FOLDER'], "colab_tf_1131_GPU.h5"))
     graph = K.get_session().graph
     print("  *****  Model loaded!")
 

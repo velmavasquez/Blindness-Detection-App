@@ -58,12 +58,16 @@
         <div class="col-md-4"></div>
 
         <div class="col-md-4">
-          <img class="center-block" src="" id="selected-image" height="200" alt="Image preview..." />
+          <img class="center-block" src="" id="selected-image" height="200" alt="" />
           <br><br>
-          <input id="image-selector" type="file" accept="image/png" >
+          <label class="custom-file-upload">
+              <input id="image-selector" type="file" accept="image/png" style="display:none;" >
+              Choose Image File...
+          </label>
           <br>
           <br>
           <button id="predict-button">Predict</button>
+          <button id="clear-button">Clear Data</button>
           <br><br>
         </div>
 
@@ -84,7 +88,8 @@
             </div>
           </div>
           <div class="col-md-7">
-              <div id="row-chart"></div>
+            <br>
+            <div id="row-chart"></div>
           </div>
           <div class="col-md-1"></div>
       </div>
@@ -109,9 +114,10 @@
         $('#selected-image').attr('src', dataURL);
         // send image in base64 format
         base64Image = dataURL.replace("data:image/png;base64,", "");
-        console.log(base64Image);
+        // console.log(base64Image);
       }
       reader.readAsDataURL($("#image-selector")[0].files[0]);
+      // $("#selected-image").show();
       $("#no-prediction").text("");
       $("#mild-prediction").text("");
       $("#mod-prediction").text("");
@@ -119,7 +125,6 @@
       $("#pro-prediction").text("");
       $("#row-chart").empty();
       document.getElementById("custom-table").style.display = "none";
-      // $("#pie-chart").empty();
     });
 
     $('#predict-button').click(function (event) {
@@ -138,13 +143,12 @@
         let category = cf.dimension(p=>p.category);
         myRowChart = dc.rowChart('#row-chart').dimension(category).group(category.group().reduceSum(p=>p.value));
         myRowChart.ordering(function(d) {
-            if(d.value == "NoDR") return 0;
-            else if(d.value == "Mild") return 1;
-            else if(d.value == "Moderate") return 2;
-            else if(d.value == "Severe") return 3;
-            else if(d.value == "ProliferativeDR") return 4;
-          });
-        // dc.pieChart('#pie-chart').dimension(category).group(category.group().reduceSum(p=>p.value))
+            if(d.key == "NoDR") return 0;
+            else if(d.key == "Mild") return 1;
+            else if(d.key == "Moderate") return 2;
+            else if(d.key == "Severe") return 3;
+            else if(d.key == "ProliferativeDR") return 4;
+        });
         dc.renderAll();
         $("#no-prediction").text(response.prediction.NoDR.toFixed(6));
         $("#mild-prediction").text(response.prediction.Mild.toFixed(6));
@@ -154,6 +158,17 @@
         document.getElementById("custom-table").style.display = "block";
         console.log(response);
       });
+    });
+
+    $('#clear-button').click(function (event) {
+      $("#no-prediction").text("");
+      $("#mild-prediction").text("");
+      $("#mod-prediction").text("");
+      $("#sev-prediction").text("");
+      $("#pro-prediction").text("");
+      $("#row-chart").empty();
+      document.getElementById("custom-table").style.display = "none";
+      document.getElementById("selected-image").src='';
     });
 
     function load(){
