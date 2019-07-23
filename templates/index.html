@@ -80,11 +80,11 @@
           <div class="col-md-3">
             <div id="custom-table">
               <p class="table-header">Predictions</p>
-              <p>No DR: <span id="no-prediction"></span></p>
-              <p>Mild: <span id="mild-prediction"></span></p>
-              <p>Moderate: <span id="mod-prediction"></span></p>
-              <p>Severe: <span id="sev-prediction"></span></p>
-              <p>Proliferative DR: <span id="pro-prediction"></span></p>
+              <p><b>No DR: </b><span id="no-prediction"></span></p>
+              <p><b>Mild: </b><span id="mild-prediction"></span></p>
+              <p><b>Moderate: </b><span id="mod-prediction"></span></p>
+              <p><b>Severe: </b><span id="sev-prediction"></span></p>
+              <p><b>Proliferative DR: </b><span id="pro-prediction"></span></p>
             </div>
           </div>
           <div class="col-md-7">
@@ -113,8 +113,7 @@
         let dataURL = reader.result;
         $('#selected-image').attr('src', dataURL);
         // send image in base64 format
-        base64Image = dataURL.replace("data:image/png;base64,", "");
-        // console.log(base64Image);
+        base64Image = dataURL.replace(/^data:image\/(png|jpg|jpeg|gif);base64,/, "");
       }
       reader.readAsDataURL($("#image-selector")[0].files[0]);
       $("#no-prediction").text("");
@@ -149,11 +148,11 @@
             else if(d.key == "ProliferativeDR") return 4;
         });
         dc.renderAll();
-        $("#no-prediction").text(response.prediction.NoDR.toFixed(6));
-        $("#mild-prediction").text(response.prediction.Mild.toFixed(6));
-        $("#mod-prediction").text(response.prediction.Moderate.toFixed(6));
-        $("#sev-prediction").text(response.prediction.Severe.toFixed(6));
-        $("#pro-prediction").text(response.prediction.ProliferativeDR.toFixed(6));
+        $("#no-prediction").text((response.prediction.NoDR * 100).toFixed(2) + '%');
+        $("#mild-prediction").text((response.prediction.Mild * 100).toFixed(2) + '%');
+        $("#mod-prediction").text((response.prediction.Moderate * 100).toFixed(2) + '%');
+        $("#sev-prediction").text(response.prediction.Severe.toFixed(2) + '%');
+        $("#pro-prediction").text(response.prediction.ProliferativeDR.toFixed(2) + '%');
         $("#custom-table").css("display", "block");
         console.log(response);
       });

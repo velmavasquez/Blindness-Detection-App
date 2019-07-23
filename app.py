@@ -39,9 +39,8 @@ def load_model():
 def prepare_image(nparr):
     #  let opencv decode image to correct format
     img = cv2.imdecode(nparr, cv2.COLOR_BGR2RGB)
-    # print(img.shape)
+    # convert image color to black and white
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    # print(img.shape)
 
     # Image processing
     img = crop_image1(img) # crop images
@@ -71,25 +70,28 @@ def predict():
     message = request.get_json(force=True)
     # get image key from json data with base64 encoded image sent by the client
     encoded = message['image']
-    # read encoded image
-    decoded = base64.b64decode(encoded)
-    # convert binary data to numpy array
-    nparr = np.fromstring(decoded, np.uint8)
-    # prepare the image for the model
-    processed_image = prepare_image(nparr)
+    if encoded != None:  # ensure an image is selected on the front-end
+        # read encoded image
+        decoded = base64.b64decode(encoded)
+        # convert binary data to numpy array
+        nparr = np.fromstring(decoded, np.uint8)
+        # prepare the image for the model
+        processed_image = prepare_image(nparr)
 
-    with graph.as_default():
-        prediction = model.predict(processed_image).tolist()
-        response = {
-            'prediction':{
-                'NoDR': prediction[0][0],
-                'Mild': prediction[0][1],
-                'Moderate': prediction[0][2],
-                'Severe': prediction[0][3],
-                'ProliferativeDR': prediction[0][4]
+        with graph.as_default():
+            prediction = model.predict(processed_image).tolist()
+            response = {
+                'prediction':{
+                    'NoDR': prediction[0][0],
+                    'Mild': prediction[0][1],
+                    'Moderate': prediction[0][2],
+                    'Severe': prediction[0][3],
+                    'ProliferativeDR': prediction[0][4]
+                }
             }
-        }
-    return jsonify(response)
+        return jsonify(response)
+    print("Warning: There was no image selected to make a prediction!")
+    return ('', 204)
 
 
 if __name__ == "__main__":

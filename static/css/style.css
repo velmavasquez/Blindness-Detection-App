@@ -42,7 +42,8 @@
 
 .table-header {
     font-weight:bold; 
-    text-align:center
+    text-align:center;
+    text-decoration: underline;
 }
 
 input[type="file"] {
