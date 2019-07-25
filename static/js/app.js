@@ -48,8 +48,8 @@ $('#predict-button').click(function (event) {
     $("#no-prediction").text((response.prediction.NoDR * 100).toFixed(2) + '%');
     $("#mild-prediction").text((response.prediction.Mild * 100).toFixed(2) + '%');
     $("#mod-prediction").text((response.prediction.Moderate * 100).toFixed(2) + '%');
-    $("#sev-prediction").text(response.prediction.Severe.toFixed(2) + '%');
-    $("#pro-prediction").text(response.prediction.ProliferativeDR.toFixed(2) + '%');
+    $("#sev-prediction").text((response.prediction.Severe * 100).toFixed(2) + '%');
+    $("#pro-prediction").text((response.prediction.ProliferativeDR * 100).toFixed(2) + '%');
     $("#custom-table").css("display", "block");
     console.log(response);
   });
