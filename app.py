@@ -26,7 +26,7 @@ def crop_image1(img,tol=7):
     mask = img>tol
     return img[np.ix_(mask.any(1),mask.any(0))]
 
-# load keras model
+# load keras model into memory
 def load_model():
     global model
     global graph
@@ -64,14 +64,15 @@ def index():
     # return the homepage
     return render_template("index.html")
 
+# expect an image file from the client app to use in this POST request endpoint
 @app.route("/predict", methods=["POST"])
 def predict():
-    # get json from the POST request
+    # get message from the client app in json format (force=TRUE: always try to parse the json from the request)
     message = request.get_json(force=True)
-    # get image key from json data with base64 encoded image sent by the client
+    # get 'image' key from json data with base64 encoded image value sent by the client
     encoded = message['image']
     if encoded != None:  # ensure an image is selected on the front-end
-        # read encoded image
+        # read encoded image and decode it (into bytes)
         decoded = base64.b64decode(encoded)
         # convert binary data to numpy array
         nparr = np.fromstring(decoded, np.uint8)
@@ -79,16 +80,19 @@ def predict():
         processed_image = prepare_image(nparr)
 
         with graph.as_default():
+            # predict returns a numpy array with the precictions, convert it to a python list
             prediction = model.predict(processed_image).tolist()
+            # define response to send back to web app
             response = {
                 'prediction':{
-                    'NoDR': prediction[0][0],
+                    'None': prediction[0][0],
                     'Mild': prediction[0][1],
                     'Moderate': prediction[0][2],
                     'Severe': prediction[0][3],
-                    'ProliferativeDR': prediction[0][4]
+                    'Proliferative': prediction[0][4]
                 }
             }
+        # return response in json format
         return jsonify(response)
     print("Warning: There was no image selected to make a prediction!")
     return ('', 204)
