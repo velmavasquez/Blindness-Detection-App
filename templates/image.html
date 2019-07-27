@@ -2,149 +2,219 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Blindness Detection App</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/3.1.0/dc.css">
-  <!-- Main HTML Style CSS-->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blindness Detection App</title>
+    <!-- Style Sheets-->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/3.1.0/dc.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
-  <!-- navbar -->
-  <nav id="navbar">
-    <div class="navbar-header">
-      <a class="navbar-brand team-name" href="" style="padding-left:25px">Blindness Detection App</a>
+    <!-- navbar -->
+    <nav id="navbar">
+        <div class="navbar-header">
+            <a class="navbar-brand team-name" href="" style="padding-left:25px">Blindness Detection App</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a class="nav-link" target="#" href="">About</a>
+                </li>
+                <li class="menu">
+                    <a target="#_blank" href="https://github.com/velmavasquez/Blindness-Detection-App"
+                        style="padding-right:20px">
+                        <img width=40px height=40px src="../static/images/Github-Logo-lg.svg">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- jumbotron & intro -->
+    <div class="row">
+        <div class="jumbotron jumbotron-fluid text-center">
+            <div class="overlay"></div>
+            <div class="inner">
+                <h1><span>Classification of Diabetic Retinopathy Severity </span></h1>
+                <h3 class="h3-white"> Detect blindness before it happens</h3>
+            </div>
+        </div>
     </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="nav-item">
-          <a class="nav-link" target="#" href="">About</a>
-        </li>
-        <li class="menu">
-          <a target="#_blank" href="https://github.com/velmavasquez/Blindness-Detection-App" style="padding-right:20px">
-            <img width=40px height=40px src="../static/images/Github-Logo-lg.svg">
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!-- jumbotron & intro -->
-  <div class="row">
-    <div class="jumbotron text-center">
-      <div class="overlay"></div>
-      <div class="inner">
-        <h1><span>Classification of Diabetic Retinopathy Severity </span></h1>
-        <h3 class="h3-white"> Detect blindness before it happens</h3>
-      </div>
-    </div>
-  </div>
-  <!-- Navigation -->
-  <section id="services">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h3 style="color: Black" class="section-heading text-uppercase">Image Processing</h3>
-          <h3 class="section-subheading text-muted">How do we know that a patient has Retinopathy?</h3>
-          <br>
-          <img src="../static/images/retinopathy.jpeg" alt="">
-          <p><sup id="cite_ref-2" class="reference"><a href="https://www.eyeops.com/contents/our-services/eye-diseases/diabetic-retinopathy">[1]</a></sup></p>
-        </div>
-        <div class="col-lg-12 text-left">
-              <p><b>Microaneurysms</b> are the earliest clinically visible changes of diabetic retinopathy. They are localised 
-                  capillary dilatations which are usually saccular (round). They appear as small red dots which are often in clusters,
-                  but may occur in isolation</p>
-              <p><b>Hemorrhages</b> may be ‘dot’ or’ blot’ shaped (termed ‘dot/blot hemorrhages’) or 
-                  flame shaped depending upon their depth within the retina. The capillary network in the posterior 
-                  retina is found in two layers; a superficial one in the nerve fiber layer and a deeper on within the inner nuclear layer.</p>
-              <p><b>Hard exudates</b> are distinct yellow-white intra-retinal deposits which can vary from small specks to larger patches. 
-                  Hard exudates are largely made up of extracellular lipid which has leaked from abnormal retinal capillaries, 
-                  hence there is often associated retinal edema (which is not visible using direct ophthalmoscopy). The underlying 
-                  problem is often apparent as the exudates will form a ring or ‘circinate’ pattern around the leaking vessels 
-                  (which may be seen as a cluster of microaneurysms). Hard exudates are found principally in the macular region 
-                  and as the lipids coalesce and extend into the central macula, vision can be severely compromised.</p>
-               <p><b>Cotton-wool spots</b> are greyish-white patches of discoloration in the nerve fiber layer which have indistinct 
-                   (fluffy) edges. They are the result of local ischaemia which leads to disruption of axoplasmic flow. Cotton-wool 
-                   spots are common and one or two do not require intervention. However, multiple cotton wool spots (more than 6 in one eye) 
-                   indicate generalised retinal ischaemia and this is regarded as a pre-proliferative state.</p>
-                <p><b>Venous dilatation</b>, beading and duplication occur as retinal ischaemia progresses. Beading is a useful sign of diffuse retinal ischaemia.
-                   Venous dilatation is seen early in diabetic retinopathy but is a rather subjective diagnosis.</p>
-                <p>Typically, preproliferative retinopathy will consist of multiple cotton wool spots, multiple dot and blot haemorrhages, venous changes and intra-retinal microvascular abnormalities.
-                    <sup id="cite_ref-2" class="reference"><a href="http://www.glycosmedia.com/education/diabetic-retinopathy/diabetic-retinopathy-features-of-diabetes-microaneurysms/">[2]</a></sup>
-                </p>
-          <br>
-        </div>
-        <div class="col-lg-12 text-center">
-          <h3 class="section-subheading text-muted">OpenCV library</h3>
-          <br>
-        </div>
-        <div class="col-lg-12 text-left">
-          <p>We do image processing to manipulate the pictures for extracting some useful information from them.  
-             We can reduce noises, control the brightness and color contrast. OpenCV (Open Source Computer Vision Library) 
-             is an open source computer vision and machine learning software library. OpenCV was built to provide a common 
-             infrastructure for computer vision applications and to accelerate the use of machine perception in the commercial 
-             products.<sup id="cite_ref-2" class="reference"><a href="https://opencv.org/about">[3]</a></sup></p>
-             
-        </div>
-          <div class="col-lg-12 text-center">
-                <h3 class="section-subheading text-muted">Color</h3>
+    <!-- Navigation -->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3 style="color: Black" class="section-heading text-uppercase">Image Processing</h3>
+                    <h3 class="section-subheading text-muted">How do we know that a patient has Retinopathy?</h3>
+                    <br>
+                    <img src="../static/images/retinopathy.jpeg" alt="">
+                    <p><sup id="cite_ref-2" class="reference"><a
+                                href="https://www.eyeops.com/contents/our-services/eye-diseases/diabetic-retinopathy">[1]</a></sup>
+                    </p>
+                </div>
+                <div class="col-lg-12 text-left">
+                    <p><b>Microaneurysms</b> are the earliest clinically visible changes of diabetic retinopathy. They
+                        are localized capillary dilatations which are usually saccular (round). They appear as small red
+                        dots which are often in clusters, but may occur in isolation</p>
+                    <p><b>Hemorrhages</b> may be ‘dot’ or’ blot’ shaped (termed ‘dot/blot hemorrhages’) or flame shaped
+                        depending upon their depth within the retina. The capillary network in the posterior retina is
+                        found in two layers; a superficial one in the nerve fiber layer and a deeper on within the inner
+                        nuclear layer.</p>
+                    <p><b>Hard exudates</b> are distinct yellow-white intra-retinal deposits which can vary from small
+                        specks to larger patches. Hard exudates are largely made up of extracellular lipid which has
+                        leaked from abnormal retinal capillaries, hence there is often associated retinal edema (which
+                        is not visible using direct ophthalmoscopy). The underlying problem is often apparent as the
+                        exudates will form a ring or ‘circinate’ pattern around the leaking vessels (which may be seen
+                        as a cluster of microaneurysms). Hard exudates are found principally in the macular region and
+                        as the lipids coalesce and extend into the central macula, vision can be severely compromised.
+                    </p>
+                    <p><b>Cotton-wool spots</b> are greyish-white patches of discoloration in the nerve fiber layer
+                        which have indistinct (fluffy) edges. They are the result of local ischaemia which leads to
+                        disruption of axoplasmic flow. Cotton-wool spots are common and one or two do not require
+                        intervention. However, multiple cotton wool spots (more than 6 in one eye) indicate generalised
+                        retinal ischaemia and this is regarded as a pre-proliferative state.</p>
+                    <p><b>Venous dilatation</b>, beading and duplication occur as retinal ischaemia progresses. Beading
+                        is a useful sign of diffuse retinal ischaemia. Venous dilatation is seen early in diabetic
+                        retinopathy but is a rather subjective diagnosis.
+                    </p>
+                    <p>Typically, preproliferative retinopathy will consist of multiple cotton wool spots, multiple dot
+                        and blot haemorrhages, venous changes and intra-retinal microvascular abnormalities.
+                        <sup id="cite_ref-2" class="reference"><a
+                                href="http://www.glycosmedia.com/education/diabetic-retinopathy/diabetic-retinopathy-features-of-diabetes-microaneurysms/">[2]</a></sup>
+                    </p>
+                    <br>
+                </div>
                 <br>
-         </div>
-         <div class="col-lg-12 text-left">
-            <p>Images come with many different lighting conditions, some images are very dark and difficult to visualize. We decided to convert the image to gray scale, and visualize better. A grayscale is simple. It represents images and morphologies by the intensity of black and white, which means it has only one channel. To see images in grayscale, we need to convert the color mode into gray.</p>
-          </div>
-          <div class="col-lg-12 text-center">
-          
-         <br>
-         </div>
-         <div class="col-lg-12 text-center">
-                <h3 class="section-subheading text-muted">Cropping</h3>
-                <br>
-         </div>
-         <div class="col-lg-12 text-left">
-             <br>
-             <p>To crop out the uninformative black areas, we can try auto cropping</p>
-         </div>
-         <div class="col-lg-12 text-center">
-                <h3 class="section-subheading text-muted">Blurring</h3>
-                <br>
-         </div>
-         <div class="col-lg-12 text-left">
-         <p>When it comes to detecting edges and contours, noise gives a great impact on the accuracy of detection. 
-            Therefore removing noises and controlling the intensity of the pixel values can help the model to focus 
-            on the general details and get higher accuracy. Blurring is one technique we use for this purpose. Ideally, 
-            we need to find an adequate amount of blurring without losing desirable edges. Gaussian filtering 
-            is highly effective in removing Gaussian noise from the image.
-         </p>
-         </div>
-         <div class="col-lg-12 text-center">
-         <img src="../static/images/gaussian.png" alt="">
-        </div>
-        <div class="col-lg-12 text-left">
-         <p>Gaussian blurring is nothing but using the kernel whose values have a Gaussian distribution. The values are 
-            generated by a Gaussian function so it requires a sigma value for its parameter. As you can see the image above, 
-            the values of the kernel go higher near the center and go smaller near the corner. It’s good to apply this method 
-            to the noises that have a normal distribution such as white noise. In terms of image processing, 
-            any sharp edges in images are smoothed while minimizing too much blurring.</p>
- 
-        </div>
-      </div>
-      <br>
-      <br>
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-subheading text-muted">OpenCV library</h3>
+                    <br>
+                </div>
+                <div class="col-lg-12 text-left">
+                    <p>We utilize image processing to manipulate the pictures for extracting some useful information
+                        from them. We can reduce noises, control the brightness and color contrast. OpenCV (Open Source
+                        Computer Vision Library) is an open source computer vision and machine learning software
+                        library. OpenCV was built to provide a common infrastructure for computer vision applications
+                        and to accelerate the use of machine perception in the commercial products.<sup id="cite_ref-2"
+                            class="reference"><a href="https://opencv.org/about">[3]</a></sup>
+                    </p>
 
-    </div>
-  </section>
+                </div>
+                <br>
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-subheading text-muted">Color</h3>
+                    <br>
+                </div>
+                <div class="col-lg-12 text-left">
+                    <p>Images come with many different lighting conditions; some images are very dark and difficult to
+                        visualize. We decided to convert the images to gray scale to visualize them better. A grayscale
+                        is simple. It represents images and morphologies by the intensity of black and white, which
+                        means it has only one channel. To see images in grayscale, we need to convert the color mode
+                        into gray.</p>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <img src="../static/images/original_images.png" alt="">
+                    <img src="../static/images/gray_images.png" alt="">
+                    <br>
+                </div>
+                <br>
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-subheading text-muted">Cropping</h3>
+                    <br>
+                </div>
+                <div class="col-lg-12 text-left">
+                    <br>
+                    <p>Many images have unnecessarty and uninformative black areas. We decided to use auto cropping to
+                        crop borders from the images if the pixel darkness exceeds a tolerance value of 7.</p>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <img src="../static/images/crop_images.png" alt="">
+                    <br>
+                </div>
+                <br>
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-subheading text-muted">Blurring</h3>
+                    <br>
+                </div>
+                <div class="col-lg-12 text-left">
+                    <p>When it comes to detecting edges and contours, noise gives a great impact on the accuracy of
+                        detection. Therefore removing noises and controlling the intensity of the pixel values can help
+                        the model to focus on the general details and get higher accuracy. Blurring is one technique we
+                        can use for this purpose. Ideally, we need to find an adequate amount of blurring without losing
+                        desirable edges. <a data-toggle="modal" href="#gaussianBlur">Gaussian filtering</a> is highly
+                        effective in removing Gaussian noise from the image.
+                    </p>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <img src="../static/images/blurred_images.png" alt="">
+                    <br>
+                </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/3.0.3/dc.min.js"></script>
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+            </div>
+            <br>
+        </div>
+    </section>
+
+    <!-- modal code -->
+    <div class="modal fade" id="gaussianBlur" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Gaussian Filter</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 text-left">
+                                <br><br><br>
+                                <p>Gaussian blurring is using the kernel whose values have a Gaussian distribution. The
+                                    values are generated by a Gaussian function so it requires a sigma value for its
+                                    parameter. As you can see in the image below, the values of the kernel go higher
+                                    near the center and go smaller near the corner. In terms of image processing, any
+                                    sharp edges in images are smoothed while minimizing too much blurring.
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 text-right">
+                                <img src="../static/images/gaussian1.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end modal code -->
+
+
+    <!-- java script libraries -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" -->
+    <!-- integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" -->
+    <!-- crossorigin="anonymous"></script> -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/3.0.3/dc.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
 
 </body>
 
