@@ -21,7 +21,7 @@ app.config['MODEL_FOLDER'] = 'BD-Model'
 model = None
 graph = None
 
-# Crop image edges
+# Crop image edges (img=image data, tol=tolerance)
 def crop_image1(img,tol=7):
     mask = img>tol
     return img[np.ix_(mask.any(1),mask.any(0))]
