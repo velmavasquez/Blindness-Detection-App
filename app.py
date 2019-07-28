@@ -21,6 +21,28 @@ app.config['MODEL_FOLDER'] = 'BD-Model'
 model = None
 graph = None
 
+##### Routes setting ###
+@app.route("/")
+def home():
+    # return the homepage
+    return render_template("index.html")
+
+@app.route("/Prevalence_Facts")
+def facts():
+    # return the homepage
+    return render_template("tableau.html")
+
+@app.route("/Image_Processing")
+def image():
+    # return the homepage
+    return render_template("image.html")
+
+@app.route("/Model")
+def model():
+    # return the homepage
+    return render_template("model.html")
+
+# ---Model Seetings---
 # Crop image edges (img=image data, tol=tolerance)
 def crop_image1(img,tol=7):
     mask = img>tol
@@ -58,11 +80,7 @@ def prepare_image(nparr):
 print("  *****  Loading Keras model.....")
 load_model()
 
-##### Routes setting ###
-@app.route("/")
-def index():
-    # return the homepage
-    return render_template("index.html")
+
 
 # expect an image file from the client app to use in this POST request endpoint
 @app.route("/predict", methods=["POST"])

@@ -87,3 +87,91 @@ input[type="file"] {
     font-weight: bold;
     margin: 5px;
 }
+/* -----------------------Tableau Style --------------------- */
+.stretch-card {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+    -webkit-justify-content: stretch;
+    justify-content: stretch;
+}
+  
+.stretch-card > .card {
+    width: 100%;
+    min-width: 100%;
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* .row1 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  } */
+
+.page-body-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+    min-height: calc(100vh - 56px);
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.main-panel {
+    background: #f0f3f6;
+    width: 100%;
+    transition: width 0.25s ease, margin 0.25s ease;
+    min-height: calc(100vh - 56px);
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+  
+@media (max-width: 991.98px) {
+    .main-panel {
+      padding-top: 80px;
+    }
+}
+
+.content-wrapper {
+    padding: 1.5rem 0;
+    width: 100%;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    min-height: calc(100vh - 156px - 75px);
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+  }
+  
+/* Utilities */
+.grid-margin {
+    margin-bottom: 1.875rem;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #e7eaed;
+    border-radius: 6px;
+}
+.card-body {
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}

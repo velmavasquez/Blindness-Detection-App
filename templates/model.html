@@ -6,41 +6,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Blindness Detection App</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/3.1.0/dc.css">
+  <link rel="shortcut icon" href="../static/images/DR_Logo.png" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
   <!-- Main HTML Style CSS-->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body onload="load()">
-  <!-- navbar -->
-  <nav id="navbar">
-    <div class="navbar-header">
-      <a class="navbar-brand team-name" href="" style="padding-left:25px">Blindness Detection App</a>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
+  <!------------ navbar ---------->
+  <header class="navbar navbar-expand-sm navbar-dark bg-dark flex-column flex-md-row bd-navbar">
+    <a class="navbar-brand" href="/">
+      <img src="../static/images/DR_Logo.png" alt="logo" style="width:60px; height:60px">
+    </a>
+    <div class="navbar-nav-scroll">
+      <ul class="navbar-nav bd-navbar-nav flex-row">
         <li class="nav-item">
-          <a class="nav-link" target="#" href="">About</a>
+          <a class="nav-link active" href="/"
+            onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Blindness Detection App</a>
         </li>
-        <li class="menu">
-          <a target="#_blank" href="https://github.com/velmavasquez/Blindness-Detection-App" style="padding-right:20px">
-            <img width=40px height=40px src="../static/images/Github-Logo-lg.svg">
-          </a>
+        <li class="nav-item">
+          <a class="nav-link " href="/Prevalence_Facts"
+            onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Prevalence Facts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/Image_Processing"
+            onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Image
+            Processing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/Model"
+            onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">Model</a>
         </li>
       </ul>
     </div>
-  </nav>
+
+    <ul class="nav navbar-nav navbar-right flex-row ml-md-auto d-none d-md-flex">
+      <li class="menu">
+        <a target="#_blank" href="https://github.com/velmavasquez/Blindness-Detection-App" style="padding-right:20px">
+          <img width=60px height=60px src="../static/images/Github-Logo-white.svg">
+        </a>
+      </li>
+    </ul>
+  </header>
+
+
   <!-- jumbotron & intro -->
-  <div class="row">
-    <div class="jumbotron text-center">
-      <div class="overlay"></div>
-      <div class="inner">
-        <h1><span>Classification of Diabetic Retinopathy Severity </span></h1>
-        <h3 class="h3-white"> Detect blindness before it happens</h3>
-      </div>
+
+  <div class="jumbotron text-center">
+    <div class="overlay"></div>
+    <div class="inner">
+      <h1><span>Classification of Diabetic Retinopathy Severity </span></h1>
+      <h3 class="h3-white"> Detect blindness before it happens</h3>
     </div>
   </div>
+
   <!-- Navigation -->
   <section id="services">
     <div class="container">
@@ -51,75 +75,81 @@
           <!-- <br>
           <img src="images/retinopathy.jpeg" alt="">
         </div> -->
-        <div class="col-lg-12 text-left">
-          <p>We use a convolutional neural network (CNN) for the classification of retina the images into 5 categories. CNN is a machine learning method often used for image classification.
-            WHY?????
+          <div class="col-lg-12 text-left">
+            <p>We use a convolutional neural network (CNN) for the classification of retina the images into 5
+              categories. CNN is a machine learning method often used for image classification.
+              WHY?????
             </p>
-          <br>
-        </div>
-        <div class="col-lg-12 text-center">
-          <h3 class="section-subheading text-muted">Model Structure</h3>
-          <br>
-        </div>
-        <div class="col-lg-12 text-left">
-          <p>
-              Our model consists of an input layer, 5 hidden layers and a dense layer. The figure below shows the structure of the model.
-          </p>
-          <img src="images/model_diagram.png" height="400" alt="">
-          <br><br>
-          <p>
-            Each hidden layer consists of 4 operations:
-            <ul>
+            <br>
+          </div>
+          <div class="col-lg-12 text-center">
+            <h3 class="section-subheading text-muted">Model Structure</h3>
+            <br>
+          </div>
+          <div class="col-lg-12 text-left">
+            <p>
+              Our model consists of an input layer, 5 hidden layers and a dense layer. The figure below shows the
+              structure of the model.
+            </p>
+            <img src="images/model_diagram.png" height="400" alt="">
+            <br><br>
+            <p>
+              Each hidden layer consists of 4 operations:
+              <ul>
                 <li>Convolution</li>
                 <li>Activation</li>
-                <li><a href="images/MaxpoolSample2.png">MaxPooling: </a>Max pooling is a sample-based discretization process. The objective is to down-sample an input representation (image, hidden-layer output matrix, etc.), reducing its dimensionality and allowing for assumptions to be made about features contained in the sub-regions binned.
-                        <sup id="cite_ref-2" class="reference"><a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling">[2]</a></sup></p>
-                </li>
-                <li>Dropout</li>
+                <li><a href="images/MaxpoolSample2.png">MaxPooling: </a>Max pooling is a sample-based discretization
+                  process. The objective is to down-sample an input representation (image, hidden-layer output matrix,
+                  etc.), reducing its dimensionality and allowing for assumptions to be made about features contained in
+                  the sub-regions binned.
+                  <sup id="cite_ref-2" class="reference"><a
+                      href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling">[2]</a></sup></p>
+            </li>
+            <li>Dropout</li>
             </ul>
             </p>
-        </div>
+          </div>
           <div class="col-lg-12 text-center">
-                <h3 class="section-subheading text-muted">Training</h3>
-                <br>
-         </div>
-         <div class="col-lg-12 text-left">
-          <p>
+            <h3 class="section-subheading text-muted">Training</h3>
+            <br>
+          </div>
+          <div class="col-lg-12 text-left">
+            <p>
               #####
-          </p>
+            </p>
 
           </div>
 
-         <div class="col-lg-12 text-center">
-                <h3 class="section-subheading text-muted">Results</h3>
-                <br>
-         </div>
+          <div class="col-lg-12 text-center">
+            <h3 class="section-subheading text-muted">Results</h3>
+            <br>
+          </div>
 
 
-         <div class="col-lg-12 text-left">
-                <p>
-                    ##################.
-                </p>
-                <img src="images/accuracy.png" height="300" alt="">
-                
-                <img src="images/loss.png" height="300" alt="">
-                <br>
+          <div class="col-lg-12 text-left">
+            <p>
+              ##################.
+            </p>
+            <img src="images/accuracy.png" height="300" alt="">
 
-                <img src="images/cm.png" height="400" alt="">
+            <img src="images/loss.png" height="300" alt="">
+            <br>
 
-                <img src="images/norm_cm.png" height="400" alt="">
-              </div>
+            <img src="images/cm.png" height="400" alt="">
 
-
+            <img src="images/norm_cm.png" height="400" alt="">
+          </div>
 
 
 
+
+
+
+        </div>
+        <br>
+        <br>
 
       </div>
-      <br>
-      <br>
-
-    </div>
   </section>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
