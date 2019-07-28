@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blindness Detection App</title>
+    <title>Image Processing</title>
     <link rel="shortcut icon" href="../static/images/DR_Logo.png" />
     <!-- Style Sheets-->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
@@ -101,7 +101,7 @@
                     <p><b>Cotton-wool spots</b> are greyish-white patches of discoloration in the nerve fiber layer
                         which have indistinct (fluffy) edges. They are the result of local ischaemia which leads to
                         disruption of axoplasmic flow. Cotton-wool spots are common and one or two do not require
-                        intervention. However, multiple cotton wool spots (more than 6 in one eye) indicate generalised
+                        intervention. However, multiple cotton wool spots (more than 6 in one eye) indicate generalized
                         retinal ischaemia and this is regarded as a pre-proliferative state.</p>
                     <p><b>Venous dilatation</b>, beading and duplication occur as retinal ischaemia progresses. Beading
                         is a useful sign of diffuse retinal ischaemia. Venous dilatation is seen early in diabetic
@@ -111,7 +111,7 @@
                         and blot haemorrhages, venous changes and intra-retinal microvascular abnormalities.
                         <sup id="cite_ref-2" class="reference"><a
                                 href="http://www.glycosmedia.com/education/diabetic-retinopathy/diabetic-retinopathy-features-of-diabetes-microaneurysms/">[2]</a></sup>
-                    </p>
+                            </p>
                     <br>
                 </div>
                 <br>
@@ -120,23 +120,27 @@
                     <br>
                 </div>
                 <div class="col-lg-12 text-left">
-                    <p>We utilize image processing to manipulate the pictures for extracting some useful information
-                        from them. We can reduce noises, control the brightness and color contrast. OpenCV (Open Source
+                    <p>We utilize image processing to manipulate the pictures in order to extract some useful
+                        information
+                        from them. We can reduce noises as well as control the brightness and color contrast. OpenCV
+                        (Open Source
                         Computer Vision Library) is an open source computer vision and machine learning software
                         library. OpenCV was built to provide a common infrastructure for computer vision applications
-                        and to accelerate the use of machine perception in the commercial products.<sup id="cite_ref-2"
+                        and to accelerate the use of machine perception in commercial products.<sup id="cite_ref-2"
                             class="reference"><a href="https://opencv.org/about">[3]</a></sup>
+                        <a href src="https://docs.opencv.org/master/">OpenCV documentation can be found here.</a>
                     </p>
 
                 </div>
                 <br>
                 <div class="col-lg-12 text-center">
+                    <br>
                     <h3 class="section-subheading text-muted">Color</h3>
                     <br>
                 </div>
                 <div class="col-lg-12 text-left">
                     <p>Images come with many different lighting conditions; some images are very dark and difficult to
-                        visualize. We decided to convert the images to gray scale to visualize them better. A grayscale
+                        visualize. We decided to convert the images to gray scale for better visualization. A grayscale
                         is simple. It represents images and morphologies by the intensity of black and white, which
                         means it has only one channel. To see images in grayscale, we need to convert the color mode
                         into gray.</p>
@@ -148,13 +152,15 @@
                 </div>
                 <br>
                 <div class="col-lg-12 text-center">
+                    <br>
                     <h3 class="section-subheading text-muted">Cropping</h3>
                     <br>
                 </div>
                 <div class="col-lg-12 text-left">
                     <br>
-                    <p>Many images have unnecessarty and uninformative black areas. We decided to use auto cropping to
-                        crop borders from the images if the pixel darkness exceeds a tolerance value of 7.</p>
+                    <p>Many images have unnecessary and uninformative black areas/borders. We decided to remove these
+                        areas with cropping by removing them from the images if the pixel darkness exceeds a tolerance value
+                        of 7.</p>
                 </div>
                 <div class="col-lg-12 text-center">
                     <img src="../static/images/crop_images.png" alt="">
@@ -162,16 +168,18 @@
                 </div>
                 <br>
                 <div class="col-lg-12 text-center">
+                    <br>
                     <h3 class="section-subheading text-muted">Blurring</h3>
                     <br>
                 </div>
                 <div class="col-lg-12 text-left">
                     <p>When it comes to detecting edges and contours, noise gives a great impact on the accuracy of
-                        detection. Therefore removing noises and controlling the intensity of the pixel values can help
+                        detection. Therefore, removing noises and controlling the intensity of the pixel values can help
                         the model to focus on the general details and get higher accuracy. Blurring is one technique we
                         can use for this purpose. Ideally, we need to find an adequate amount of blurring without losing
                         desirable edges. <a data-toggle="modal" href="#gaussianBlur">Gaussian filtering</a> is highly
-                        effective in removing Gaussian noise from the image.
+                        effective in removing Gaussian noise from the image. <sup id="cite_ref-2"
+                        class="reference"><a href="https://www.tutorialkart.com/opencv/python/opencv-python-gaussian-image-smoothing/">[4]</a></sup>
                     </p>
                 </div>
                 <div class="col-lg-12 text-center">
@@ -200,6 +208,9 @@
                         <div class="row">
                             <div class="col-lg-12 text-left">
                                 <br><br><br>
+                                <p>Gaussian distribution (also known as normal distribution) is a bell-shaped curve, and
+                                    it is assumed that during any measurement values will follow a normal distribution
+                                    with an equal number of measurements above and below the mean value.</p>
                                 <p>Gaussian blurring is using the kernel whose values have a Gaussian distribution. The
                                     values are generated by a Gaussian function so it requires a sigma value for its
                                     parameter. As you can see in the image below, the values of the kernel go higher
