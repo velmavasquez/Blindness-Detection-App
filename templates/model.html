@@ -6,150 +6,221 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Blindness Detection App</title>
-  <link rel="shortcut icon" href="../static/images/DR_Logo.png" />
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/3.1.0/dc.css">
   <!-- Main HTML Style CSS-->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
-<body onload="load()">
-  <!------------ navbar ---------->
-  <header class="navbar navbar-expand-sm navbar-dark bg-dark flex-column flex-md-row bd-navbar">
-    <a class="navbar-brand" href="/">
-      <img src="../static/images/DR_Logo.png" alt="logo" style="width:60px; height:60px">
-    </a>
-    <div class="navbar-nav-scroll">
-      <ul class="navbar-nav bd-navbar-nav flex-row">
+<body>
+  <!-- navbar -->
+  <nav id="navbar">
+    <div class="navbar-header">
+      <a class="navbar-brand team-name" href="" style="padding-left:25px">Blindness Detection App</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
         <li class="nav-item">
-          <a class="nav-link active" href="/"
-            onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Blindness Detection App</a>
+          <a class="nav-link" target="#" href="">About</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link " href="/Prevalence_Facts"
-            onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Prevalence Facts</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="/Image_Processing"
-            onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Image
-            Processing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " href="/Model"
-            onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">Model</a>
+        <li class="menu">
+          <a target="#_blank" href="https://github.com/velmavasquez/Blindness-Detection-App" style="padding-right:20px">
+            <img width=40px height=40px src="../static/images/Github-Logo-lg.svg">
+          </a>
         </li>
       </ul>
     </div>
-
-    <ul class="nav navbar-nav navbar-right flex-row ml-md-auto d-none d-md-flex">
-      <li class="menu">
-        <a target="#_blank" href="https://github.com/velmavasquez/Blindness-Detection-App" style="padding-right:20px">
-          <img width=60px height=60px src="../static/images/Github-Logo-white.svg">
-        </a>
-      </li>
-    </ul>
-  </header>
-
-
+  </nav>
   <!-- jumbotron & intro -->
-
-  <div class="jumbotron text-center">
-    <div class="overlay"></div>
-    <div class="inner">
-      <h1><span>Classification of Diabetic Retinopathy Severity </span></h1>
-      <h3 class="h3-white"> Detect blindness before it happens</h3>
+  <div class="row">
+    <div class="jumbotron text-center">
+      <div class="overlay"></div>
+      <div class="inner">
+        <h1><span>Classification of Diabetic Retinopathy Severity </span></h1>
+        <h3 class="h3-white"> Detect blindness before it happens</h3>
+      </div>
     </div>
   </div>
-
   <!-- Navigation -->
   <section id="services">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
           <h3 style="color: Black" class="section-heading text-uppercase">Classification Model</h3>
-          <h3 class="section-subheading text-muted">Convolutional Neural Network</h3>
-          <!-- <br>
-          <img src="images/retinopathy.jpeg" alt="">
-        </div> -->
-          <div class="col-lg-12 text-left">
-            <p>We use a convolutional neural network (CNN) for the classification of retina the images into 5
-              categories. CNN is a machine learning method often used for image classification.
-              WHY?????
-            </p>
-            <br>
-          </div>
-          <div class="col-lg-12 text-center">
-            <h3 class="section-subheading text-muted">Model Structure</h3>
-            <br>
-          </div>
-          <div class="col-lg-12 text-left">
+          <h3 class="section-subheading text-muted">Convolutional Neural Network <sup id="cite_ref-2" class="reference"><a href="https://www.mathworks.com/solutions/deep-learning/convolutional-neural-network.html">[1]</a></sup></h3>
+
+        <div class="col-lg-12 text-left">
             <p>
-              Our model consists of an input layer, 5 hidden layers and a dense layer. The figure below shows the
-              structure of the model.
+                We use a convolutional neural network (CNN) for the classification of retina the
+                 images into 5 categories. CNN is one  of the most popular algorithms for deep learning,
+                  a type of machine learning in which a model learns to perform classification tasks
+                   directly from images, video, text, or sound.
+                CNNs are particularly useful for finding patterns in images to recognize objects,
+                 faces, and scenes. They learn directly from image data, using patterns to classify
+                  images and eliminating the need for manual feature extraction.
+                Applications that call for object recognition and computer vision — such as self-driving
+                 vehicles and face-recognition applications — rely heavily on CNNs.
             </p>
-            <img src="images/model_diagram.png" height="400" alt="">
-            <br><br>
-            <p>
-              Each hidden layer consists of 4 operations:
-              <ul>
-                <li>Convolution</li>
-                <li>Activation</li>
-                <li><a href="images/MaxpoolSample2.png">MaxPooling: </a>Max pooling is a sample-based discretization
-                  process. The objective is to down-sample an input representation (image, hidden-layer output matrix,
-                  etc.), reducing its dimensionality and allowing for assumptions to be made about features contained in
-                  the sub-regions binned.
-                  <sup id="cite_ref-2" class="reference"><a
-                      href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling">[2]</a></sup></p>
-            </li>
-            <li>Dropout</li>
+          <br>
+        </div>
+        <div class="col-lg-12 text-center">
+          <h3 class="section-subheading text-muted">Model Structure</h3>
+          <br>
+        </div>
+        <div class="col-lg-12 text-left">
+          <p>
+              Our model consists of an input layer, 5 hidden layers and a dense layer. The figure below shows the structure of the model,
+              a more detailed diagram of the model can be found <a href="../static/images/model.png">here</a>.
+              Often the hidden layers of a CNN consist of <a href="../static/images/conv_process.png">3 operations</a>; Convolution, Activation and Pooling.
+              Due to overfitting issues we also added Dropout to each hidden layer of our model.
+          </p>
+
+          <img src="../static/images/model_diagram.png" height="400" alt="">
+          <br><br>
+          <p>
+
+            <ul>
+                <li><a href="../static/images/convolution-example-matrix.gif">Convolution: </a>Convolution is the
+                     dot product between a filter array and a portion of input the image. The operation is repeated
+                      until all elements of the input image have been acted on by the filter.
+                     A filter is a set 'weights' to be apply on the input image. The weights determine the features
+                      extracted from the image, <a href="../static/images/filters.png">see examples</a>.
+                </li>
+                <br>
+                <li><a data-toggle="modal" href="#myModal">Convolution: </a>The dot pr</li>
+                <br>
+                <li><a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">Activation: </a>We use a RELU activation
+                        after each convolution. The RELU activation function keep the positive elements of and array and
+                        and substitutes the negative elements with 0s.</li>
+                <br>
+                <li><a href="../static/images/MaxpoolSample2.png">MaxPooling: </a>Max pooling is a sample-based discretization process. 
+                        The objective is to down-sample an input representation (image, hidden-layer output matrix, etc.),
+                         reducing its dimensionality and allowing for assumptions to be made about features contained
+                          in the sub-regions binned.
+                        <sup id="cite_ref-2" class="reference"><a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling">[2]</a></sup>
+                </li>
+                <br>
+                <li><a href="https://en.wikipedia.org/wiki/Dropout_(neural_networks)">Dropout: </a>A technique used to
+                        reduce overfitting. During the training process the contribution of random elements of the 
+                        network are temporarily ignored.
+                        <sup id="cite_ref-2" class="reference"><a href="https://machinelearningmastery.com/dropout-regularization-deep-learning-models-keras/">[3]</a>
+                </li>
+
+
+
             </ul>
             </p>
-          </div>
-          <div class="col-lg-12 text-center">
-            <h3 class="section-subheading text-muted">Training</h3>
-            <br>
-          </div>
-          <div class="col-lg-12 text-left">
-            <p>
-              #####
-            </p>
-
-          </div>
-
-          <div class="col-lg-12 text-center">
-            <h3 class="section-subheading text-muted">Results</h3>
-            <br>
-          </div>
-
-
-          <div class="col-lg-12 text-left">
-            <p>
-              ##################.
-            </p>
-            <img src="images/accuracy.png" height="300" alt="">
-
-            <img src="images/loss.png" height="300" alt="">
-            <br>
-
-            <img src="images/cm.png" height="400" alt="">
-
-            <img src="images/norm_cm.png" height="400" alt="">
-          </div>
-
-
-
-
-
-
         </div>
-        <br>
-        <br>
+          <div class="col-lg-12 text-center">
+                <h3 class="section-subheading text-muted">Data & Training</h3>
+                <br>
+         </div>
+         <div class="col-lg-12 text-left">
+          <p>
+              <ul>
+                  <li>
+                      Our data set consisted of ######## images. We used 85% of the images for training and 15% testing. 
+                  </li>
+                  <li>
+                      We used sklearn to calculate a class weight for each of the five categories, since the number
+                      of images in the data set was different for each category. 
+                </li>
+                  <li>
+                      We used image augmentation during the training process. Some of the training images
+                      were randomly flipped either horizontaly or verticaly, therefore the set of training
+                      images between two epochs was never the same. Image augmentation was implemented using 
+                      ImageDataGenerator library from Keras. 
+                  </li>
+                  <li>
+                      We implemeted an early stopping condition that would stop the model if the training loss did not
+                      improve after a specified number of epochs.
+                  </li>
+              </ul>
+          </p>
+
+          </div>
+          <!-- convolution-example-matrix -->
+         <div class="col-lg-12 text-center">
+                <h3 class="section-subheading text-muted">Results</h3>
+
+         </div>
+
+
+
+
+              <br><br><br>
+
+              <div class="row"> 
+                    <div class="column">
+                      <img src="../static/images/accuracy.png" height="350" alt="">
+                      <img src="../static/images/loss.png" height="350" alt="">
+                    </div>
+              </div>
+              <br><br><br>
+              <div class="row"> 
+                    <div class="column">
+                      <!-- <img src="../static/images/cm.png" height="425" alt=""> -->
+                      <img src="../static/images/norm_cm.png" height="425" alt="">
+                    </div>
+              </div>
+
+              <br><br>
+              <div class="col-lg-12 text-left">
+              <p>
+                  <h3>Metrics Summary</h3>
+                    <ul>
+                        <li>
+                          <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">Accuracy: </a>0.752 
+                        </li>
+                        <li>
+                          <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">Loss: </a>0.626 
+                        </li>                        
+                        <li>
+                          <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">F1 score: </a>0.745
+                        </li>
+                        <li>
+                          <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">Kappa: </a>0.818
+                        </li>
+                    </ul>
+                </p>
+            </div>
+
+              
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+     
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+              <p>Some text in the modal.
+
+              <a href="../static/images/convolution-example-matrix.gif"></a>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+     
+        </div>
+      </div>
+
+
+
+
+
 
       </div>
+      <br>
+      <br>
+
+    </div>
   </section>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
