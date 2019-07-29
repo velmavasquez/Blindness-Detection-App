@@ -71,9 +71,21 @@ input[type="file"] {
     margin-bottom: 2px;
 }
 
+table.table-bordered{
+    border:2px solid #3498DB;
+    margin-top:20px;
+  }
+table.table-bordered > thead > tr > th{
+    border:2px solid #3498DB;
+}
+table.table-bordered > tbody > tr > td{
+    border:2px solid #3498DB;
+}
+
 #image-selector {
     text-align: center;
     margin: auto;
+    font-weight: bold;
 }
 
 #row-chart svg {
