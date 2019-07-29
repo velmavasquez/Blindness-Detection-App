@@ -66,6 +66,11 @@ input[type="file"] {
     /* width: 300px; */
 }
 
+#custom-table p {
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
+
 #image-selector {
     text-align: center;
     margin: auto;
