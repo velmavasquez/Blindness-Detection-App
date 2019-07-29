@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Blindness Detection App</title>
+  <link rel="shortcut icon" href="../static/images/DR_Logo.png" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- Main HTML Style CSS-->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body onload="initViz()">
+  <!------------ navbar ---------->
+  <header class="navbar navbar-expand-sm navbar-dark bg-dark flex-column flex-md-row bd-navbar">
+    <a class="navbar-brand" href="/">
+      <img src="../static/images/DR_Logo.png" alt="logo" style="width:60px; height:60px">
+    </a>
+    <div class="navbar-nav-scroll">
+      <ul class="navbar-nav bd-navbar-nav flex-row">
+        <li class="nav-item">
+          <a class="nav-link active" href="/"
+            onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Blindness Detection App</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/Prevalence_Facts"
+            onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Prevalence Facts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/Image_Processing"
+            onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Image
+            Processing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/Model"
+            onclick="ga('send', 'event', 'Navbar', 'Community links', 'Examples');">Model</a>
+        </li>
+      </ul>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right flex-row ml-md-auto d-none d-md-flex">
+      <li class="menu">
+        <a target="#_blank" href="https://github.com/velmavasquez/Blindness-Detection-App" style="padding-right:20px">
+          <img width=60px height=60px src="../static/images/Github-Logo-white.svg">
+        </a>
+      </li>
+    </ul>
+  </header>
+
+
+  <!-- jumbotron & intro -->
+
+  <div class="jumbotron text-center">
+    <div class="overlay"></div>
+    <div class="inner">
+      <h1><span>Classification of Diabetic Retinopathy Severity </span></h1>
+      <h3 class="h3-white"> Exploring the prevalence patterns in the U.S.</h3>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <div class="container-fluid page-body-wrapper">
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="row mt-4">
+          <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <div class="row whitespace" style="padding-top: -150px">
+                  <div class="col-md-12">
+
+                    <div id="vizContainer" style="padding-left: 25px" style="width:1100px; height:700px;"></div>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/3.0.3/dc.min.js"></script>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>
