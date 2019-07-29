@@ -141,7 +141,7 @@ function load(){
 // Embbeding Tableau in HTML
 function initViz() {
     var containerDiv = document.getElementById("vizContainer"),
-        url = "http:///public.tableau.com/views/DR-USA_Prevalence/Dashboard1?:embed=yes",
+        url = "https:///public.tableau.com/views/DR-USA_Prevalence/Dashboard1?:embed=yes",
         options = {
             hideTabs: true,
             responsive: true,
