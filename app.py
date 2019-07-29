@@ -54,7 +54,9 @@ def load_model():
     global graph
     # the following with stmnt may only be needed when running in tensorflow 1.13.1 environment.
     with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
-        model = keras.models.load_model(os.path.join(app.config['MODEL_FOLDER'], "cnn3_model_augmented_7-24-2019_trained.h5"))
+        # model = keras.models.load_model(os.path.join(app.config['MODEL_FOLDER'], "cnn3_model_augmented_7-24-2019_trained.h5"))
+        model = keras.models.load_model(os.path.join(app.config['MODEL_FOLDER'], "cnn2_augmented_extra_v2.h5"))
+        
     graph = K.get_session().graph
     print("  *****  Model loaded!")
 
