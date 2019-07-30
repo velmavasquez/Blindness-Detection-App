@@ -63,7 +63,7 @@
       <div class="overlay"></div>
       <div class="inner">
         <h1><span>Classification of Diabetic Retinopathy Severity </span></h1>
-        <h3 class="h3-white"> Detect blindness before it happens</h3>
+        <h3 class="h3-white">Classification Model</h3>
       </div>
     </div>
   <!-- </div> -->
@@ -72,20 +72,20 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <br>
+          <!-- <br>
           <h3 style="color: Black" class="section-heading text-uppercase">Classification Model</h3>
-          <br>
+          <br> -->
           <!-- <h3 class="section-subheading text-muted">Convolutional Neural Network <sup id="cite_ref-2" class="reference"><a href="https://www.mathworks.com/solutions/deep-learning/convolutional-neural-network.html">[1]</a></sup></h3> -->
 
         <div class="col-lg-12 text-left">
             <br>
-            <h3 class="section-subheading text-muted">Convolutional Neural Network <sup id="cite_ref-2" class="reference"><a href="https://www.mathworks.com/solutions/deep-learning/convolutional-neural-network.html">[1]</a></sup></h3>
+            <h3 class="section-subheading text-muted">Convolutional Neural Network</h3>
             <br>
             <p>
                 We use a convolutional neural network (CNN) for the classification of retina
                  images into 5 categories. CNN is one  of the most popular algorithms for deep learning,
                   a type of machine learning in which a model learns to perform classification tasks
-                   directly from images, video, text, or sound.
+                   directly from images, video, text, or sound.<sup id="cite_ref-2" class="reference"><a href="https://www.mathworks.com/solutions/deep-learning/convolutional-neural-network.html">[1]</a></sup>
                 CNNs are particularly useful for finding patterns in images to recognize objects,
                  faces, and scenes. They learn directly from image data, using patterns to classify
                   images and eliminating the need for manual feature extraction.
@@ -160,11 +160,29 @@
           <p>
               <ul>
                   <li>
-                      Our data set consisted of ######## images. We used 85% of the images for training and 15% testing. 
+                      Our data set consisted of a total of 6,917 images obtained from 2 kaggle competitions and the
+                      Indian Diabetic Retinopathy Image Dataset (IDRiD):
+                      <ul>
+                          <li>
+                            <a href="https://www.kaggle.com/c/aptos2019-blindness-detection">APTOS 2019 Blindness Detection</a>
+                          </li>
+                          <li>
+                            <a href="https://www.kaggle.com/c/diabetic-retinopathy-detection">Diabetic Retinopathy Detection</a>
+                          </li>
+                          <li>
+                            <a href="https://idrid.grand-challenge.org/">IDRiD</a>
+                          </li>
+                      </ul>
+                      <div class="col-lg-12 text-center">
+                        <img src="../static/images/dist_images.png" height="400" alt="">
+                     </div>
                   </li>
                   <li>
-                      We used sklearn to calculate a class weight for each of the five categories, since the number
+                      We used sklearn to calculate a class weights for each of the five categories, since the number
                       of images in the data set was different for each category. 
+                </li>
+                <li>
+                    We used 85% of the images for training and 15% testing. 
                 </li>
                   <li>
                       We used image augmentation during the training process. Some of the training images
@@ -212,22 +230,22 @@
                   <br>
                     <ul>
                         <li>
-                          <a href="https://en.wikipedia.org/wiki/Accuracy_and_precision">Accuracy: </a>0.766 
+                          <a href="https://en.wikipedia.org/wiki/Accuracy_and_precision">Accuracy: </a> 0.766
                         </li>
                         <li>
-                          <a href="https://towardsdatascience.com/common-loss-functions-in-machine-learning-46af0ffc4d23">Loss: </a>0.575 
+                          <a href="https://towardsdatascience.com/common-loss-functions-in-machine-learning-46af0ffc4d23">Loss: </a> 0.575
                         </li>
                         <li>
-                          <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision: </a>0.763 
+                          <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision: </a> 0.763
                         </li>
                         <li>
-                          <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Recall: </a>0.766 
+                          <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Recall: </a> 0.766
                         </li>                                              
                         <li>
-                          <a href="https://en.wikipedia.org/wiki/F1_score">F1 score: </a>0.760
+                          <a href="https://en.wikipedia.org/wiki/F1_score">F1 score: </a> 0.760
                         </li>
                         <li>
-                          <a href="https://en.wikipedia.org/wiki/Cohen%27s_kappa">Kappa: </a>0.840
+                          <a href="https://en.wikipedia.org/wiki/Cohen%27s_kappa">Kappa: </a> 0.840
                         </li>
                     </ul>
                 </p>
