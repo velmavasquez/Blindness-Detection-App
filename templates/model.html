@@ -72,10 +72,6 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <!-- <br>
-          <h3 style="color: Black" class="section-heading text-uppercase">Classification Model</h3>
-          <br> -->
-          <!-- <h3 class="section-subheading text-muted">Convolutional Neural Network <sup id="cite_ref-2" class="reference"><a href="https://www.mathworks.com/solutions/deep-learning/convolutional-neural-network.html">[1]</a></sup></h3> -->
 
         <div class="col-lg-12 text-left">
             <br>
@@ -102,10 +98,9 @@
         <div class="col-lg-12 text-left">
           <p>
               Our model consists of an input layer, 5 hidden layers and a dense layer. The figure below shows the structure of the model,
-              <!-- a more detailed diagram of the model can be found <a href="../static/images/model.png">here</a>. -->
               a more detailed diagram of the model can be found <a data-toggle="modal" href="#fullmodel">here</a>.
               
-              Often the hidden layers of a CNN consist of <a href="../static/images/conv_process.jpg">3 operations</a>; Convolution, Activation and Pooling.
+              Often the hidden layers in a CNN consist of <a href="../static/images/conv_process.jpg">3 operations</a>; Convolution, Activation and Pooling.
               Due to overfitting issues we also added Dropout to each hidden layer of our model.
           </p>
 
@@ -119,13 +114,13 @@
           <p>
 
             <ul>
-                <!-- <li><a href="../static/images/convolution-example-matrix.gif">Convolution: </a>Convolution is the -->
+                
                 <li><a data-toggle="modal" href="#convolution">Convolution: </a>Convolution is the
                      dot product between a filter array and a portion of input the image. The operation is repeated
                       until all elements of the input image have been acted on by the filter.
                      A filter is a set 'weights' to be apply on the input image. The weights determine the features
-                      <!-- extracted from the image, <a href="../static/images/filters.png">see examples</a>. -->
-                      extracted from the image, <a data-toggle="modal" href="#examples">see examples: </a>.
+                
+                      extracted from the image, <a data-toggle="modal" href="#examples">see examples</a>.
                 </li>
                 <br>
 
@@ -133,7 +128,7 @@
                         after each convolution. RELU function keeps the positive elements of an array and
                         and substitutes the negative elements with 0s, only the activated features are carried forward into the next layer.</li>
                 <br>
-                <!-- <li><a href="../static/images/MaxpoolSample2.png">Pooling: </a>Pooling simplifies the output by performing downsampling, -->
+                
                 <li><a data-toggle="modal" href="#maxpooling">Pooling: </a>Pooling simplifies the output by performing downsampling,
                        reducing the number of parameters that the network needs to learn. Our model uses Max pooling, which looks at a region
                        of an input array and keeps the maximum value within that region.
