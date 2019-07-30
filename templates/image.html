@@ -138,9 +138,11 @@
                                 href="https://www.tutorialkart.com/opencv/python/opencv-python-gaussian-image-smoothing/">[2]</a></sup>
                     </p>
                     <p>We then use this blurred image to create a "mask". The blurring technique surpressed most of the
-                        high frequency components. We can now apply an OpenCV function which uses a weighted average of
-                        the original image and the blurred image. This essentially results in an output image enhancing
-                        the high frequency components which were blocked by the "mask" (smoothing filter).
+                        high frequency components. Therefore, when we subract the blurred image from the original image, 
+                        the result is what we are calling a mask. This mask will have most of the high-frequency 
+                        components that were blocked by the smoothing filter. Adding the mask back to the original image 
+                        will enhance the high frequency components. OpenCV has a function which uses a weighted average 
+                        of the original image and the blurred image that allows us to accomplish this task.
                         <sup id="cite_ref-2" class="reference"><a
                                 href="https://theailearner.com/tag/cv2-addweighted/">[3]</a></sup>
                     </p>
