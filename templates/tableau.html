@@ -50,7 +50,7 @@
     <ul class="nav navbar-nav navbar-right flex-row ml-md-auto d-none d-md-flex">
       <li class="menu">
         <a target="#_blank" href="https://github.com/velmavasquez/Blindness-Detection-App" style="padding-right:20px">
-          <img width=60px height=60px src="../static/images/Github-Logo-white.svg">
+          <img width=40px height=40px src="../static/images/Github-Logo-white.svg">
         </a>
       </li>
     </ul>
@@ -88,26 +88,77 @@
             </div>
           </div>
         </div>
+
+        <div class="row mt-4">
+          <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-lg-12 text-center">
+                    <h3 style="color: Black" class="section-heading text-uppercase">How do we know that a patient has Retinopathy?</h3>
+                    <br>
+                    <img src="../static/images/retinopathy.jpeg" alt="">
+                    <p><sup id="cite_ref-2" class="reference"><a
+                          href="https://www.eyeops.com/contents/our-services/eye-diseases/diabetic-retinopathy">[1]</a></sup>
+                    </p>
+                  </div>
+                  <div class="col-lg-12 text-left">
+                    <p><b>Microaneurysms</b> are the earliest clinically visible changes of diabetic retinopathy. They
+                      are localized capillary dilatations which are usually saccular (round). They appear as small red
+                      dots which are often in clusters, but may occur in isolation</p>
+                    <p><b>Hemorrhages</b> may be ‘dot’ or’ blot’ shaped (termed ‘dot/blot hemorrhages’) or flame shaped
+                      depending upon their depth within the retina. The capillary network in the posterior retina is
+                      found in two layers; a superficial one in the nerve fiber layer and a deeper on within the inner
+                      nuclear layer.</p>
+                    <p><b>Hard exudates</b> are distinct yellow-white intra-retinal deposits which can vary from small
+                      specks to larger patches. Hard exudates are largely made up of extracellular lipid which has
+                      leaked from abnormal retinal capillaries, hence there is often associated retinal edema (which
+                      is not visible using direct ophthalmoscopy). The underlying problem is often apparent as the
+                      exudates will form a ring or ‘circinate’ pattern around the leaking vessels (which may be seen
+                      as a cluster of microaneurysms). Hard exudates are found principally in the macular region and
+                      as the lipids coalesce and extend into the central macula, vision can be severely compromised.
+                    </p>
+                    <p><b>Cotton-wool spots</b> are greyish-white patches of discoloration in the nerve fiber layer
+                      which have indistinct (fluffy) edges. They are the result of local ischaemia which leads to
+                      disruption of axoplasmic flow. Cotton-wool spots are common and one or two do not require
+                      intervention. However, multiple cotton wool spots (more than 6 in one eye) indicate generalized
+                      retinal ischaemia and this is regarded as a pre-proliferative state.</p>
+                    <p><b>Venous dilatation</b>, beading and duplication occur as retinal ischaemia progresses. Beading
+                      is a useful sign of diffuse retinal ischaemia. Venous dilatation is seen early in diabetic
+                      retinopathy but is a rather subjective diagnosis.
+                    </p>
+                    <p>Typically, preproliferative retinopathy will consist of multiple cotton wool spots, multiple dot
+                      and blot haemorrhages, venous changes and intra-retinal microvascular abnormalities.
+                      <sup id="cite_ref-2" class="reference"><a
+                          href="http://www.glycosmedia.com/education/diabetic-retinopathy/diabetic-retinopathy-features-of-diabetes-microaneurysms/">[2]</a></sup>
+                    </p>
+                    <br>
+                  </div>
+                  <br>
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
       </div>
     </div>
-  </div>
 
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
 
-
-
-
-
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-  <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/3.0.3/dc.min.js"></script>
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/3.0.3/dc.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
 
 
 
