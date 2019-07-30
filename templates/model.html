@@ -74,11 +74,15 @@
         <div class="col-lg-12 text-center">
           <br>
           <h3 style="color: Black" class="section-heading text-uppercase">Classification Model</h3>
-          <h3 class="section-subheading text-muted">Convolutional Neural Network <sup id="cite_ref-2" class="reference"><a href="https://www.mathworks.com/solutions/deep-learning/convolutional-neural-network.html">[1]</a></sup></h3>
+          <br>
+          <!-- <h3 class="section-subheading text-muted">Convolutional Neural Network <sup id="cite_ref-2" class="reference"><a href="https://www.mathworks.com/solutions/deep-learning/convolutional-neural-network.html">[1]</a></sup></h3> -->
 
         <div class="col-lg-12 text-left">
+            <br>
+            <h3 class="section-subheading text-muted">Convolutional Neural Network <sup id="cite_ref-2" class="reference"><a href="https://www.mathworks.com/solutions/deep-learning/convolutional-neural-network.html">[1]</a></sup></h3>
+            <br>
             <p>
-                We use a convolutional neural network (CNN) for the classification of retina the
+                We use a convolutional neural network (CNN) for the classification of retina
                  images into 5 categories. CNN is one  of the most popular algorithms for deep learning,
                   a type of machine learning in which a model learns to perform classification tasks
                    directly from images, video, text, or sound.
@@ -88,16 +92,19 @@
                 Applications that call for object recognition and computer vision — such as self-driving
                  vehicles and face-recognition applications — rely heavily on CNNs.
             </p>
-          <br>
+
         </div>
-        <div class="col-lg-12 text-center">
+        <div class="col-lg-12 text-left">
+          <br>
           <h3 class="section-subheading text-muted">Model Structure</h3>
           <br>
         </div>
         <div class="col-lg-12 text-left">
           <p>
               Our model consists of an input layer, 5 hidden layers and a dense layer. The figure below shows the structure of the model,
-              a more detailed diagram of the model can be found <a href="../static/images/model.png">here</a>.
+              <!-- a more detailed diagram of the model can be found <a href="../static/images/model.png">here</a>. -->
+              a more detailed diagram of the model can be found <a data-toggle="modal" href="#fullmodel">here</a>.
+              
               Often the hidden layers of a CNN consist of <a href="../static/images/conv_process.png">3 operations</a>; Convolution, Activation and Pooling.
               Due to overfitting issues we also added Dropout to each hidden layer of our model.
           </p>
@@ -107,20 +114,22 @@
           <p>
 
             <ul>
-                <li><a href="../static/images/convolution-example-matrix.gif">Convolution: </a>Convolution is the
+                <!-- <li><a href="../static/images/convolution-example-matrix.gif">Convolution: </a>Convolution is the -->
+                <li><a data-toggle="modal" href="#convolution">Convolution: </a>Convolution is the
                      dot product between a filter array and a portion of input the image. The operation is repeated
                       until all elements of the input image have been acted on by the filter.
                      A filter is a set 'weights' to be apply on the input image. The weights determine the features
-                      extracted from the image, <a href="../static/images/filters.png">see examples</a>.
+                      <!-- extracted from the image, <a href="../static/images/filters.png">see examples</a>. -->
+                      extracted from the image, <a data-toggle="modal" href="#examples">see examples: </a>.
                 </li>
                 <br>
-                <!-- <li><a data-toggle="modal" href="#myModal">Convolution: </a>The dot pr</li>
-                <br> -->
+
                 <li><a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">Activation: </a>We use a RELU activation
                         after each convolution. RELU function keeps the positive elements of an array and
                         and substitutes the negative elements with 0s, only the activated features are carried forward into the next layer.</li>
                 <br>
-                <li><a href="../static/images/MaxpoolSample2.png">Pooling: </a>Pooling simplifies the output by performing downsampling,
+                <!-- <li><a href="../static/images/MaxpoolSample2.png">Pooling: </a>Pooling simplifies the output by performing downsampling, -->
+                <li><a data-toggle="modal" href="#maxpooling">Pooling: </a>Pooling simplifies the output by performing downsampling,
                        reducing the number of parameters that the network needs to learn. Our model uses Max pooling, which looks at a region
                        of an input array and keeps the maximum value within that region.
                         <sup id="cite_ref-2" class="reference"><a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling">[2]</a></sup>
@@ -137,9 +146,10 @@
             </ul>
             </p>
         </div>
-          <div class="col-lg-12 text-center">
+          <div class="col-lg-12 text-left">
+              <br>
                 <h3 class="section-subheading text-muted">Data & Training</h3>
-                <br>
+              <br>
          </div>
          <div class="col-lg-12 text-left">
           <p>
@@ -170,15 +180,15 @@
 
           </div>
           <!-- convolution-example-matrix -->
-         <div class="col-lg-12 text-center">
+         <div class="col-lg-12 text-left">
+            <br>
                 <h3 class="section-subheading text-muted">Results</h3>
-
+            <br>
          </div>
 
 
 
 
-              <br><br><br>
 
               <div class="row"> 
                     <div class="column">
@@ -197,7 +207,9 @@
               <br><br>
               <div class="col-lg-12 text-left">
               <p>
+                  <br>
                   <h3>Metrics Summary</h3>
+                  <br>
                     <ul>
                         <li>
                           <a href="https://en.wikipedia.org/wiki/Accuracy_and_precision">Accuracy: </a>0.766 
@@ -223,29 +235,171 @@
 
        
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-     
-          <!-- Modal content-->
-          <div class="modal-content">
+    <!-- modal code -->
+    <div class="modal fade" id="fullmodel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLongTitle">Model Diagram</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <!-- <div class="row">
+                            <div class="col-lg-12 text-left">
+                                <p>Gaussian distribution (also known as normal distribution) is a bell-shaped curve, and
+                                    it is assumed that during any measurement values will follow a normal distribution
+                                    with an equal number of measurements above and below the mean value.</p>
+                                <p>Gaussian blurring is using the kernel whose values have a Gaussian distribution. The
+                                    values are generated by a Gaussian function so it requires a sigma value for its
+                                    parameter. As you can see in the image below, the values of the kernel go higher
+                                    near the center and go smaller near the corner. In terms of image processing, any
+                                    sharp edges in images are smoothed while minimizing too much blurring.
+                                </p>
+
+                            </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <img src="../static/images/model.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="convolution" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLongTitle">Convolution Operation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <!-- <div class="row">
+                            <div class="col-lg-12 text-left">
+                                <p>Gaussian distribution (also known as normal distribution) is a bell-shaped curve, and
+                                    it is assumed that during any measurement values will follow a normal distribution
+                                    with an equal number of measurements above and below the mean value.</p>
+                                <p>Gaussian blurring is using the kernel whose values have a Gaussian distribution. The
+                                    values are generated by a Gaussian function so it requires a sigma value for its
+                                    parameter. As you can see in the image below, the values of the kernel go higher
+                                    near the center and go smaller near the corner. In terms of image processing, any
+                                    sharp edges in images are smoothed while minimizing too much blurring.
+                                </p>
+
+                            </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <img src="../static/images/convolution-example-matrix.gif" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="examples" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLongTitle">Filter Examples</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <!-- <div class="row">
+                            <div class="col-lg-12 text-left">
+                                <p>Gaussian distribution (also known as normal distribution) is a bell-shaped curve, and
+                                    it is assumed that during any measurement values will follow a normal distribution
+                                    with an equal number of measurements above and below the mean value.</p>
+                                <p>Gaussian blurring is using the kernel whose values have a Gaussian distribution. The
+                                    values are generated by a Gaussian function so it requires a sigma value for its
+                                    parameter. As you can see in the image below, the values of the kernel go higher
+                                    near the center and go smaller near the corner. In terms of image processing, any
+                                    sharp edges in images are smoothed while minimizing too much blurring.
+                                </p>
+
+                            </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <img src="../static/images/filters.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <div class="modal fade" id="maxpooling" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Modal Header</h4>
+                <h5 class="modal-title text-center" id="exampleModalLongTitle">Max Pooling</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
-              <p>Some text in the modal.
+                <div class="container-fluid">
+                    <!-- <div class="row">
+                        <div class="col-lg-12 text-left">
+                            <p>Gaussian distribution (also known as normal distribution) is a bell-shaped curve, and
+                                it is assumed that during any measurement values will follow a normal distribution
+                                with an equal number of measurements above and below the mean value.</p>
+                            <p>Gaussian blurring is using the kernel whose values have a Gaussian distribution. The
+                                values are generated by a Gaussian function so it requires a sigma value for its
+                                parameter. As you can see in the image below, the values of the kernel go higher
+                                near the center and go smaller near the corner. In terms of image processing, any
+                                sharp edges in images are smoothed while minimizing too much blurring.
+                            </p>
 
-              <a href="../static/images/convolution-example-matrix.gif"></a>
-              </p>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-lg-12 text-right">
+                            <img src="../static/images/MaxpoolSample2.png" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
-          </div>
-     
         </div>
-      </div>
+    </div>
+</div>
+
+    <!-- end modal code -->
 
 
 
