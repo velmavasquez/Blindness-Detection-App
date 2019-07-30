@@ -40,6 +40,10 @@
     display:block
  }
 
+ .dc-chart g.row text {
+     fill: black;
+}
+
 .table-header {
     font-weight:bold; 
     text-align:center;
