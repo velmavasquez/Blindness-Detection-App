@@ -27,7 +27,7 @@ def home():
     # return the homepage
     return render_template("index.html")
 
-@app.route("/Prevalence_Facts")
+@app.route("/Facts")
 def facts():
     # return the homepage
     return render_template("tableau.html")
