@@ -93,7 +93,7 @@
                 </div>
                 <div class="col-lg-12 text-left">
                     <p>Images come with many different lighting conditions; some images are very dark and difficult
-                        to visualize. We decided to convert the images to gray scale for better visualization. A
+                        to visualize. We decided to convert the images to grayscale for better visualization. A
                         grayscale is simple. It represents images and morphologies by the intensity of black and
                         white, which means it has only one channel. To see images in grayscale, we need to convert
                         the color mode into gray.</p>
@@ -111,8 +111,8 @@
                 </div>
                 <div class="col-lg-12 text-left">
                     <p>Many images have unnecessary and uninformative black areas/borders. We decided to remove
-                        these areas with cropping by removing them from the images if the pixel darkness exceeds a
-                        tolerance value of 7.</p>
+                        these areas with cropping. We keep only rows and columns which contain at least one pixel
+                        with a brightness value exceeding our predefined tolerance value of 7.</p>
                 </div>
                 <div class="col-lg-12 text-center">
                     <img src="../static/images/crop_images.png" alt="">
@@ -125,27 +125,27 @@
                     <br>
                 </div>
                 <div class="col-lg-12 text-left">
-                    <p>Since our images come in many sizes, we make things consistent by resizing each image to 224 X
-                        224 pixels.</p>
-                    <p>When it comes to detecting edges and contours, noise gives a great impact on the accuracy of
-                        detection. Therefore, removing noises and controlling the intensity of the pixel values can
-                        help the model to focus on the general details and get higher accuracy. Blurring is one
+                    <p>We know that by smoothing an image we suppress most of the high-frequency components. Blurring is one
                         technique we can use for this purpose. Ideally, we need to find an adequate amount of blurring
-                        without
-                        losing desirable edges. <a data-toggle="modal" href="#gaussianBlur">Gaussian filtering</a>
+                        without losing desirable edges. <a data-toggle="modal" href="#gaussianBlur">Gaussian filtering</a>
                         is highly effective in removing Gaussian noise from the image. <sup id="cite_ref-2"
                             class="reference"><a
                                 href="https://www.tutorialkart.com/opencv/python/opencv-python-gaussian-image-smoothing/">[2]</a></sup>
                     </p>
-                    <p>We then use this blurred image to create a "mask". The blurring technique surpressed most of the
-                        high frequency components. Therefore, when we subtract the blurred image from the original image, 
-                        the result is what we are calling a mask. This mask will have most of the high-frequency 
+                    <div class="col-lg-12 text-center">
+                            <img src="../static/images/g_blurred.png" alt="">
+                    </div>
+                    <p>We then use this blurred image to create a "mask". Since the blurring technique surpressed most of the
+                        high frequency components, when we subtract the blurred image from the original image, 
+                        the result is what we call a mask. This mask will have most of the high-frequency 
                         components that were blocked by the smoothing filter. Adding the mask back to the original image 
                         will enhance the high frequency components. OpenCV has a function which uses a weighted average 
                         of the original image and the blurred image that allows us to accomplish this task.
                         <sup id="cite_ref-2" class="reference"><a
                                 href="https://theailearner.com/tag/cv2-addweighted/">[3]</a></sup>
                     </p>
+                    <p>Finally, since our images come in many sizes, we make things consistent by resizing each image to 224 X 224 pixels.
+                        </p>
                 </div>
                 <div class="col-lg-12 text-center">
                     <img src="../static/images/blurred_resize.png" alt="">
