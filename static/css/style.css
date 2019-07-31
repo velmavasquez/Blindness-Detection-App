@@ -78,12 +78,27 @@ input[type="file"] {
 table.table-bordered{
     border:2px solid #3498DB;
     margin-top:20px;
-  }
+}
+
 table.table-bordered > thead > tr > th{
     border:2px solid #3498DB;
 }
+
 table.table-bordered > tbody > tr > td{
     border:2px solid #3498DB;
+}
+
+table.table-bordered-red{
+    border:2px solid rgb(235, 117, 8);
+    margin-top:20px;
+}
+
+table.table-bordered-red > thead > tr > th{
+    border:2px solid  rgb(235, 117, 8);
+}
+
+table.table-bordered-red > tbody > tr > td{
+    border:2px solid  rgb(235, 117, 8);
 }
 
 #image-selector {
