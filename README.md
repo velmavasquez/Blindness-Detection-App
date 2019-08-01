@@ -10,7 +10,9 @@ IDRiD : https://idrid.grand-challenge.org/
 
 # Group Members
 Angel Alejandro :https://github.com/aalejandroq
+
 Amy Claman : https://github.com/aeclaman
+
 Velmarini Vasquez
 
 
