@@ -16,3 +16,5 @@ Amy Claman : https://github.com/aeclaman
 Velmarini Vasquez
 
 
+# Test Images
+Please note that there are several images that can be fed to this application located in the repository in all of the folders under Blindness-Detection-App/BD-Model/images/demo.
